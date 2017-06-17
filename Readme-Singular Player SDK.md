@@ -17,17 +17,16 @@ If you want to develop Singular Control Apps, Singular Widgets and Custom data s
 1. **[Introduction](#introduction)**
 
 1. **[Singular Player - Loading Compositions](#singular-player---loading-compositions)**
-  * [Add the Singular Player SDK path into your code](#add-the-singular-player-sdk-path-into-your-code)
-  * [Add iframe pointing to the player url](#add-iframe-pointing-to-the-player-url)
-  * [Obtain player object from the iframe by the iframe id](#obtain-player-object-from-the-iframe-by-the-iframe-id)
-  * [Load composition identified by the composition id](#load-composition-identified-by-the-composition-id)
-  * [Code example](#code-example)
+   * [Add the Singular Player SDK path into your code](#add-the-singular-player-sdk-path-into-your-code)
+   * [Add iframe pointing to the player url](#add-iframe-pointing-to-the-player-url)
+   * [Obtain player object from the iframe by the iframe id](#obtain-player-object-from-the-iframe-by-the-iframe-id)
+   * [Load composition identified by the composition id](#load-composition-identified-by-the-composition-id)
+   * [Code example](#code-example)
 
 1. **[Singular Player - Handle SubCompositions](#singular-player---handle-subcompositions)**
-  * [Get SubComposition by id](#get-subcomposition-by-id)
-  * [Set Payload of a SubComposition](#set-payload-of-a-subcomposition)
-  * [Code example](#code-example)
-
+   * [Get SubComposition by id](#get-subcomposition-by-id)
+   * [Set Payload of a SubComposition](#set-payload-of-a-subcomposition)
+   * [Code example](#code-example)
 
 1. **[API Reference](#api-reference)**
 
