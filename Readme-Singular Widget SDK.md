@@ -6,7 +6,7 @@ Welcome to the Singular Widget SDK documentation. The Singular Widget SDK provid
 
 If you want to develop Singular Control Apps, please check out the Singular App SDK documentation.
 
-This documentation is open source. If you’ve found any errors, typos or would like to improve this document, feel free to send us requests and comments to sdk@singular.live.
+This documentation is open source. If you’ve found any errors, typos or would like to improve this document, feel free to send us requests and comments to [sdk@singular.live](mailto:sdk@singular.live).
 
 ## Setting up you Environment
 
@@ -337,20 +337,20 @@ The JSON structure above defines a group field with six UI fields which are comb
 
 The following table describes in the available group properties.
 
-property	var type	example	description
-id	string	“theGroup”	identifier of the field. This must be unique
-title	string	“Text Input”	text shown in the header of the UI panel
-width	string	
-“double”
-“”, “single”	defines the width of the panel
-double width of panel
-any other string defines standard width of panel
-toolTip	string	“Details …."	the tool tip text is shown on “mouse over” on the “I” icon 
-childIds	array	“text1”, “text2”	array containing the IDs of fields defined in the “fields” section. 
-activeID	string	“useTheGroup”	the ID of a “checkbox” field that will be shown n the header of the panel.
-NOTE: The “checkbox” field has to be defined as part of  the “fields” array before it is attached to a group using the “activeID” definition!
+| property | var type | example | description |
+|---------:|:--------:|:-------:|:------------|
+| id | string | “theGroup” | identifier of the field. This must be unique |
+| title | string | “Text Input” | text shown in the header of the UI panel |
+| width | string |  | defines the width of the panel |
+|  |  | “double” | double width of panel |
+|  |  | “”, “single” | any other string defines standard width of panel |
+| toolTip | string | “Details ..." | the tool tip text is shown on “mouse over” on the `I` icon |
+| childIds | array | “text1”, “text2” | array containing the IDs of fields defined in the “fields” section. |
+| activeID | string | “useTheGroup” | the ID of a `checkbox` field that will be shown n the header of the panel. |
+|  |  |  | NOTE: The `checkbox` field has to be defined as part of the `fields` array before it is attached to a group using the `activeID` definition! |
 
 Fields that are not explicitly assigned to a group, are automatically group in the `Miscellaneous` group panel. The `Miscellaneous` group panel will be hidden if all UI fields are assigned to groups.
+
 The state of the `activeID` property of a group panel enables and disables all the fields in a group. E.g. you defined a UI field of the type `checkbox` with the ID `useTitle` and assigned it to a group called `Shadow` using `activeID`: `useTitle`. The checkbox will be shown in the upper right corner of the group. Depending on the state of the `useTitle` checkbox, all shadow properties like `theTitle`, `theSubtitle`, etc, that belong to this group are enabled or disabled.
 
 Please refer to the following example.
