@@ -14,7 +14,7 @@ This documentation is open source. If you’ve found any errors, typos or would 
 
 The Singular Widget SDK requires a local installation of node.js. You can find the latest documentation on node.js and download it from [https://nodejs.org/en/](https://nodejs.org/en/).
 
-### Installation of the singular-cli
+### Installation of the Singular-cli
 After the installation of node.js, open the console and install the latest Singular-cli. 
 
 Following cli’s are available:
@@ -26,106 +26,149 @@ Following cli’s are available:
 | `singularapp-cli` | Install this cli, if you want to develop Singular Apps only |
 
 
-This document describes the installation of the singular-cli. For specific details about the singularwidget-cli or singularapp-cli please refer to https://github.com/singularlive/ or https://www.npmjs.com/~singularlive. 
-Install running the command:
-npm install singular-cli -g
-After the installation of the cli, console commands to create and deploy Singular Widgets and Apps are available. 
+This document describes the installation of the singular-cli. For specific details about the singularwidget-cli or singularapp-cli please refer to [https://github.com/singularlive/](https://github.com/singularlive/) or [https://www.npmjs.com/~singularlive](https://www.npmjs.com/~singularlive). 
+
+#### Install running the command:
+
+    npm install singular-cli -g
+
+After the installation of the cli, console commands to create and deploy Singular Widgets and Apps are available.
+
 The create commands clone the Singular boiler plates into the specified folder.
-The deploy commands check, package and upload the widget or app code to Singular.live. Every widget and app is identified by a unique “deploy key”. How to generate a “deploy key”, is covered in the section “Creating a Singular Widget”.
+
+The deploy commands check, package and upload the widget or app code to Singular.live. Every widget and app is identified by a unique `deploy key`. How to generate a `deploy key`, is covered in the section `Creating a Singular Widget`.
 
 Create Singular Widget boiler plate:
-singular createwidget <folder name>
+
+    singular createwidget <folder name>
+
 Deploy Singular Widget:
-singular deploywidget <folder name>
+
+    singular deploywidget <folder name>
+
 Create Singular App boiler plate:
-singular createapp <folder name>
+
+    singular createapp <folder name>
+
 Deploy Singular App:
-singular deployapp <folder name>
+
+    singular deployapp <folder name>
 
 More information about the Singlar.live cli’s:
-https://github.com/singularlive/singular-cli
-https://github.com/singularlive/singularwidget-cli
-https://github.com/singularlive/singularapp-cli 
+
+- [https://github.com/singularlive/singular-cli](https://github.com/singularlive/singular-cli)
+- [https://github.com/singularlive/singularwidget-cli](https://github.com/singularlive/singularwidget-cli)
+- [https://github.com/singularlive/singularapp-cli ](https://github.com/singularlive/singularapp-cli)
+
 Source code of the widget and app boiler plates:
-https://github.com/singularlive/widget-development-boilerplate
-https://github.com/singularlive/app-development-boilerplate
- 
-CREATING A WIDGET
+
+- [https://github.com/singularlive/widget-development-boilerplate](https://github.com/singularlive/widget-development-boilerplate)
+- [https://github.com/singularlive/app-development-boilerplate](https://github.com/singularlive/app-development-boilerplate)
+
+## CREATING A WIDGET
+
 The following steps are required to create a Singular Widget:
+
 1.	Creating a widget on your local disk
 2.	Creating a widget in Singular.live
 3.	Deploying a widget
 4.	Testing and debugging a widget
 5.	Publishing a widget
-Creating a widget on your local disk
+
+### Creating a widget on your local disk
+
 The following commands create a folder on your local disk and download the widget source code. We recommend adding this folder to your source code management tool.
+
 Open a console and type following commands:
-C:\Users\tm\Singular Widgets>singular createwidget myFirstWidget
-Singular Widget – myFirstWidget has been created
 
-C:\Users\tm\Singular Widgets>dir /S /B
-C:\Users\tm\Singular Widgets\myFirstWidget
-C:\Users\tm\Singular Widgets\myFirstWidget\deploykey.json
-C:\Users\tm\Singular Widgets\myFirstWidget\source
-C:\Users\tm\Singular Widgets\myFirstWidget\source\icon.png
-C:\Users\tm\Singular Widgets\myFirstWidget\source\output.html
+    C:\Users\tm\Singular Widgets>singular createwidget myFirstWidget
+    Singular Widget – myFirstWidget has been created
+    C:\Users\tm\Singular Widgets>dir /S /B
+    C:\Users\tm\Singular Widgets\myFirstWidget
+    C:\Users\tm\Singular Widgets\myFirstWidget\deploykey.json
+    C:\Users\tm\Singular Widgets\myFirstWidget\source
+    C:\Users\tm\Singular Widgets\myFirstWidget\source\icon.png
+    C:\Users\tm\Singular Widgets\myFirstWidget\source\output.html
 
-This command creates the folder “myFirstWidget” and clones the widget boiler plate into this folder. 
+This command creates the folder “myFirstWidget” and clones the widget boiler plate into this folder.
+
 Description of default files:
-•	deploykey.json: File containing the widget deploy key.
-•	source\icon.png:  widget icon in png format
-•	source\output.hml: widget source code
-Creating a widget in Singular.live
-Log into Singular.live
+
+- deploykey.json: File containing the widget deploy key.
+- source\icon.png:  widget icon in png format
+- source\output.hml: widget source code
+
+### Creating a widget in Singular.live
+
+#### Log into Singular.live
+
 To create a widget for Singular.live, login with a user that has developer permissions. To check your user permissions, open the “User Administration” of your Singular account.
+
+#### Create Widget
+
+Select the `Widget Manager` in the `Account Drop Down Menu`.
+
+Create a new widget by clicking the `New Widget` button. Enter a name and a category for your widget. The widget name does not need to match the name of the folder used with the `singular createwidget` command. Nevertheless, we recommend using the same names.
+
+#### Enable your widget for custom state animation handling
+
+If you develop custom in- and out-animations for your widget, you need to enable the `Custom State Animation` checkbox in the Widget Manager. This will allow your widget to receive state animation callbacks. for details please refer to `WIDGET SDK FUNCTIONS`.
  
-Create Widget
-Select the “Widget Manager” in the “Account Drop Down Menu”.
+This activates the `Widget` effect in the animation menu.
  
-Create a new widget by clicking the “New Widget” button. Enter a name and a category for your widget. The widget name does not need to match the name of the folder used with the “singular createwidget” command. Nevertheless, we recommend using the same names.
- 
-Enable your widget for custom state animation handling
-If you develop custom in- and out-animations for your widget, you need to enable the “Custom State Animation” checkbox in the Widget Manager. This will allow your widget to receive state animation callbacks. for details please refer to “WIDGET SDK FUNCTIONS”.
- 
-This activates the “Widget” effect in the animation menu.
- 
-Deploying a widget
-Copy the “Deploy Key” from the Widget Details into the “deploykey.json” file. The file should look like this:
+### Deploying a widget
+
+Copy the `Deploy Key` from the Widget Details into the `deploykey.json` file. The file should look like this:
+
+```javascript
 {
   "deploykey": "uS3bDUabcDnYlAZMO87OL2nBckvSIdmE"
 }
- Upload the Widget code to Singular using following command in the node.js console:
-C:\Users\tm\Singular Widgets>singular deploywidget myFirstWidget
------------------------------------------------
-Singular.live widget deploy
-Validating files in directory "source"
-Creating zip file
-Deploying widget to Singular.live
-Widget ID: 3294 successfully deployed
+```
 
-C:\Users\tm\Singular Widgets>
+Upload the Widget code to Singular using following command in the node.js console:
+
+    C:\Users\tm\Singular Widgets>singular deploywidget myFirstWidget
+    -----------------------------------------------
+    Singular.live widget deploy
+    Validating files in directory "source"
+    Creating zip file
+    Deploying widget to Singular.live
+    Widget ID: 3294 successfully deployed
+    
+    C:\Users\tm\Singular Widgets>
 
 The deploy script reads the deploy.json file, exracts the deploy key, creates a zip-file of the widget sources and uploads it to Singular.live.
-The status of the “Development” version of your widget gets updated every time you deploy new sources for your widget. Refresh the Widget Manager and select your widget to see and select your Widget to see the updated status.
+
+The status of the `Development` version of your widget gets updated every time you deploy new sources for your widget. Refresh the Widget Manager and select your widget to see and select your Widget to see the updated status.
  
-Testing and debugging a widget
+### Testing and debugging a widget
+
 To test your widget, follow these steps:
-•	open the Singular composition editor
-•	to add your widget to the composition, open the widget browser by clicking “Add” -> “Widget”
-•	Make sure to activate the “Show Dev Versions” checkbox to see all development versions of widgets.
-•	Select your widget to add it to the Singular composition tree
-•	Use the browsers built in capabilities for debugging and optimizing your widget.
+
+- open the Singular composition editor
+- to add your widget to the composition, open the widget browser by clicking `Add` -> `Widget`
+- Make sure to activate the `Show Dev Versions` checkbox to see all development versions of widgets.
+- Select your widget to add it to the Singular composition tree
+- Use the browsers built in capabilities for debugging and optimizing your widget.
  
-Publishing a widget
+### Publishing a widget
+
 When the widget is fully tested, use the ”Publish” function to make it available for other users.
-The “Publish” function creates an identical copy of the “Development” version of your widget and tags it as “Published”. The “Development” version gets increased by one.
+
+The `Publish` function creates an identical copy of the `Development` version of your widget and tags it as `Published`. The `Development` version gets increased by one.
  
 Widgets never get deleted from the Singular.live platform. They are always in one of the following states:
-development: Every new widget starts in the “development” status. Widget under development and only can be accessed by users with development permissions. Once your widget is fully developed and tested, you “publish” it, to make it available to other users. Widgets in “development” status can be “Published”
-published: A published Widget is available to all members of your account. Only one “published” versions of a widget exists at the same time. By default, always the latest published version will be used when a widget is added to a composition. Widgets in “published” status can be “Un-published”.
-archived: Widgets automatically get archived when a new version is being published. Existing compositions that use an older version of the widget still will stay on this version. A standard user can manually “update” the widget in the composition by selecting the “Update” button. Users with developer permissions can in addition select to use any archived version of a widget. Widgets in “archived” status can be “Published” and “Deprecated”.
-depreciated: A widget is set to “Deprecate” status, when you want or need to force compositions to use and upgrade to the latest published version of a widget. A Widgets in “deprecated” status can be “Archived”.
-Overview of widget statuses:
+
+> ***development:*** Every new widget starts in the `development` status. Widget under development and only can be accessed by users with development permissions. Once your widget is fully developed and tested, you `publish` it, to make it available to other users. Widgets in “development” status can be `Published`
+
+> ***published:*** A published Widget is available to all members of your account. Only one `published` versions of a widget exists at the same time. By default, always the latest published version will be used when a widget is added to a composition. Widgets in `published` status can be `Un-published`.
+
+> ***archived:*** Widgets automatically get archived when a new version is being published. Existing compositions that use an older version of the widget still will stay on this version. A standard user can manually `update` the widget in the composition by selecting the `Update` button. Users with developer permissions can in addition select to use any archived version of a widget. Widgets in `archived` status can be `Published` and `Deprecated`.
+
+> ***depreciated:*** A widget is set to `Deprecate` status, when you want or need to force compositions to use and upgrade to the latest published version of a widget. A Widgets in `deprecated` status can be `Archived`.
+
+#### Overview of widget statuses:
 STATUS	ACTION	NEW STATUS
 development	Publish	published
 published	Un-publish	archived
