@@ -18,8 +18,11 @@
 | label | [default properties] |  | read only html text |
 | text | [default properties] |  | single line text input field |
 | textarea | [default properties] |  | multi line text input field |
-| | • rows | integer | “5” | number of rows |
-| | • cols | integer | “15” | number of columns |
+| | • rows, • cols | integer, integer | “5”, “15” | number of rows, number of columns |
+| |  | integer | “15” | number of columns |
+
+
+
 | font | [default properties]			font selector including font style
 	hideUI
 •	style
