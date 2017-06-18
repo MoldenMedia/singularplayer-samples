@@ -6,13 +6,15 @@ Welcome to the Singular.live REST API documentation. The Singular.live REST API 
 This document describes the REST API calls and the JSON data formats used. You can use any HTTP based library to access the Singular.live REST API. The examples in this document show requests and responses used in curl. 
 The base URL of the REST API is [`https://app.singular.live/apiv1`](https://app.singular.live/apiv1).
 
-**NOTE:**
+> **NOTE:**
+>
 > At the current time (May, 2017), the base URL of the REST API is [`https://app.singular.live/apiv1`](https://app.singular.live/apiv1)
 
 This documentation is open source. If you’ve found any errors, typos or would like to improve this document, 
 feel free to send us requests and comments to [`sdk@singular.live`](mailto:sdk@singular.live).
 
-**INFO:**
+> **INFO:**
+>
 > Request/Response in Singular APIs is in JSON format. Request content-type must be application/json
 
 ## Table of Contents
