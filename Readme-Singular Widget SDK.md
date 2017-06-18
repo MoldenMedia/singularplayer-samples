@@ -94,9 +94,9 @@ This command creates the folder “myFirstWidget” and clones the widget boiler
 
 Description of default files:
 
-- deploykey.json: File containing the widget deploy key.
-- source\icon.png:  widget icon in png format
-- source\output.hml: widget source code
+- `deploykey.json`: File containing the widget deploy key.
+- `source\icon.png`:  widget icon in png format
+- `source\output.hml`: widget source code
 
 ### Creating a widget in Singular.live
 
@@ -160,13 +160,13 @@ The `Publish` function creates an identical copy of the `Development` version of
  
 Widgets never get deleted from the Singular.live platform. They are always in one of the following states:
 
-> ***development:*** Every new widget starts in the `development` status. Widget under development and only can be accessed by users with development permissions. Once your widget is fully developed and tested, you `publish` it, to make it available to other users. Widgets in “development” status can be `Published`
+   ***development:*** Every new widget starts in the `development` status. Widget under development and only can be accessed by users with development permissions. Once your widget is fully developed and tested, you `publish` it, to make it available to other users. Widgets in “development” status can be `Published`
 
-> ***published:*** A published Widget is available to all members of your account. Only one `published` versions of a widget exists at the same time. By default, always the latest published version will be used when a widget is added to a composition. Widgets in `published` status can be `Un-published`.
+   ***published:*** A published Widget is available to all members of your account. Only one `published` versions of a widget exists at the same time. By default, always the latest published version will be used when a widget is added to a composition. Widgets in `published` status can be `Un-published`.
 
-> ***archived:*** Widgets automatically get archived when a new version is being published. Existing compositions that use an older version of the widget still will stay on this version. A standard user can manually `update` the widget in the composition by selecting the `Update` button. Users with developer permissions can in addition select to use any archived version of a widget. Widgets in `archived` status can be `Published` and `Deprecated`.
+   ***archived:*** Widgets automatically get archived when a new version is being published. Existing compositions that use an older version of the widget still will stay on this version. A standard user can manually `update` the widget in the composition by selecting the `Update` button. Users with developer permissions can in addition select to use any archived version of a widget. Widgets in `archived` status can be `Published` and `Deprecated`.
 
-> ***depreciated:*** A widget is set to `Deprecate` status, when you want or need to force compositions to use and upgrade to the latest published version of a widget. A Widgets in `deprecated` status can be `Archived`.
+   ***depreciated:*** A widget is set to `Deprecate` status, when you want or need to force compositions to use and upgrade to the latest published version of a widget. A Widgets in `deprecated` status can be `Archived`.
 
 #### Overview of widget statuses:
 STATUS	ACTION	NEW STATUS
