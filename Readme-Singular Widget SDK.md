@@ -65,7 +65,7 @@ Source code of the widget and app boiler plates:
 - [https://github.com/singularlive/widget-development-boilerplate](https://github.com/singularlive/widget-development-boilerplate)
 - [https://github.com/singularlive/app-development-boilerplate](https://github.com/singularlive/app-development-boilerplate)
 
-## CREATING A WIDGET
+## Creating a Widget
 
 The following steps are required to create a Singular Widget:
 
@@ -169,22 +169,24 @@ Widgets never get deleted from the Singular.live platform. They are always in on
 * ***depreciated:*** A widget is set to `Deprecate` status, when you want or need to force compositions to use and upgrade to the latest published version of a widget. A Widgets in `deprecated` status can be `Archived`.
 
 #### Overview of widget statuses:
-STATUS	ACTION	NEW STATUS
-development	Publish	published
-published	Un-publish	archived
-archived	Publish	published
-	Deprecate	deprecated
-deprecated	Archive	archived
 
-Changing the status of widgets:
+| STATUS | ACTION | NEW STATUS |
+|:------:|:------:|:----------:|
+| development | Publish | published |
+| published | Un-publish | archived |
+| archived | Publish | published |
+|  | Deprecate | deprecated |
+| deprecated | Archive | archived |
+
+#### Changing the status of widgets:
  
+## Widget UI Definition
 
-
- 
-WIDGET UI DEFINITION
 The widget UI is defined by a JSON structure. Singular creates the user interface for the widget based on this structure.
-The structure is an object with one member called “model”. The “model” has two members, “fields” and “groups” which are defined as arrays. The definition of “fields” is required, the definition of “groups” is optional.
 
+The structure is an object with one member called `model`. The `model` has two members, `fields` and `groups` which are defined as arrays. The definition of `fields` is required, the definition of `groups` is optional.
+
+```javascript
 {
     "model": {
         "fields": [{
@@ -196,11 +198,14 @@ The structure is an object with one member called “model”. The “model” h
         "groups": []
     }
 }
+```
 
 The JSON structure above creates a text field for a widget. The following section describes in detail all supported field types and their properties.
 
-UI Field Types
-Properties are supported by all field types
+### UI Field Types
+
+#### Properties are supported by all field types
+
 property	var type	example	description
 id	string	“theName”	the identifier of the field. This must be unique
 type	string	“text”	type of field
@@ -210,7 +215,8 @@ defaultValue	string	“John Doe”
 disabled	boolean	“true”, “false”	fields can be disabled by default. Set this to true to disable the field
 hidden	boolean	“true”, “false”	fields can be hidden in the user interface. Set this to true to hide the field
 
-Field types and their specific properties
+#### Field types and their specific properties
+
 field type	properties	var type	example	description
 label	[default properties]			read only html text
 text	[default properties]			single line text input field
@@ -291,9 +297,11 @@ option title
 button	[default properties]			push button
 composition	[default properties]			select a composition instance
 				
+#### Examples
 
-Examples
 Define a field showing percentage values between 0 and 100:
+
+```javascript
 {
     "model": {
         "fields": [{
@@ -310,8 +318,11 @@ Define a field showing percentage values between 0 and 100:
         "groups": []
     }
 }
+```
 
 Define a selection field:
+
+```javascript
 {
     "model": {
         "fields": [{
@@ -341,10 +352,15 @@ Define a selection field:
         "groups": []
     }
 }
+```
 
-Grouping UI Fields
-Use groups to logically combine UI fields into on UI panel. The groups item is an array of group objects. 
+### Grouping UI Fields
+
+Use groups to logically combine UI fields into on UI panel. The groups item is an array of group objects.
+
 Structure of the group object:
+
+```javascript
 {
     "model": {
         "fields": [
@@ -363,10 +379,12 @@ Structure of the group object:
         ]
     }
 }
+```
 
 The JSON structure above defines a group field with six UI fields which are combined on one panel in the widget UI.
-  
+
 The following table describes in the available group properties.
+
 property	var type	example	description
 id	string	“theGroup”	identifier of the field. This must be unique
 title	string	“Text Input”	text shown in the header of the UI panel
@@ -380,8 +398,12 @@ childIds	array	“text1”, “text2”	array containing the IDs of fields defin
 activeID	string	“useTheGroup”	the ID of a “checkbox” field that will be shown n the header of the panel.
 NOTE: The “checkbox” field has to be defined as part of  the “fields” array before it is attached to a group using the “activeID” definition!
 
-Fields that are not explicitly assigned to a group, are automatically group in the “Miscellaneous” group panel. The “Miscellaneous” group panel will be hidden if all UI fields are assigned to groups.
-The state of the “activeID” property of a group panel enables and disables all the fields in a group. E.g. you defined a UI field of the type “checkbox” with the ID “useTitle” and assigned it to a group called “Shadow” using “activeID”: “useTitle”. The checkbox will be shown in the upper right corner of the group. Depending on the state of the “useTitle” checkbox, all shadow properties like “theTitle”, “theSubtitle”, etc, that belong to this group are enabled or disabled. Please refer to the following example.
+Fields that are not explicitly assigned to a group, are automatically group in the `Miscellaneous` group panel. The `Miscellaneous` group panel will be hidden if all UI fields are assigned to groups.
+The state of the `activeID` property of a group panel enables and disables all the fields in a group. E.g. you defined a UI field of the type `checkbox` with the ID `useTitle` and assigned it to a group called `Shadow` using `activeID`: `useTitle`. The checkbox will be shown in the upper right corner of the group. Depending on the state of the `useTitle` checkbox, all shadow properties like `theTitle`, `theSubtitle`, etc, that belong to this group are enabled or disabled.
+
+Please refer to the following example.
+
+```javasrcipt
 {
     "model": {
         "fields": [{
@@ -412,18 +434,24 @@ The state of the “activeID” property of a group panel enables and disables a
         ]
     }
 }
+```
 
 Using the above definition will create following widget editor: 
  
-NOTE: The “Use Title” checkbox will enable and disabled the “Title” and “Sub Title” fields.
+> NOTE:
+>
+>The `Use Title` checkbox will enable and disabled the `Title` and `Sub Title` fields.
 
  
-WIDGET SDK FUNCTIONS
-A singular widget must include the Singular widget library. The current release of the library is 1.0.2 and can be found here: 
-https://libs.singular.live/singularwidget/1.0.2/singularwidget.js 
+## Widget SDK Functions
+
+A singular widget must include the Singular widget library. The current release of the library is 1.0.2 and can be found here:
+
+[https://libs.singular.live/singularwidget/1.0.2/singularwidget.js](https://libs.singular.live/singularwidget/1.0.2/singularwidget.js)
 
 To initialize the library, add the following code to your widget
 
+```javascript
 SingularWidget.init({
 	  onInit: onSingularInit,
 	  onValue: onSingularValue,
@@ -431,20 +459,22 @@ SingularWidget.init({
         onEditComp: onSingularEditComp,
         onAnimation: onSingularAnimation
 	});
+```
 
+This call will tell Singular which functions to call in your widget.
 
-This call will tell Singular which functions to call in your widget. 
-onInit()
-This function is called when a widget instance is created.
-onValue(json)
-This function is called when an instance of a widget is created or the instance data is changed. The instance data structure is defined with the UI Definition JSON in the widget manager in Singular. 
-onButtonClicked(buttonID)
-If you widget has push buttons this function is called when one is clicked.
-onEditComp(fieldID)
-Is called when the sub composition of a widget is edited. The fieldID tells you which composition field is being edited. Sub composition in widgets are quite complex and will be explained in the next section.
-onAnimation(msg)
-Is called when animation events occurred.
-Description of “msg” parameters:
+* ***onInit():*** This function is called when a widget instance is created.
+
+* ***onValue(json):*** This function is called when an instance of a widget is created or the instance data is changed. The instance data structure is defined with the UI Definition JSON in the widget manager in Singular. 
+
+* ***onButtonClicked(buttonID):*** If you widget has push buttons this function is called when one is clicked.
+
+* ***onEditComp(fieldID):*** Is called when the sub composition of a widget is edited. The fieldID tells you which composition field is being edited. Sub composition in widgets are quite complex and will be explained in the next section.
+
+* ***onAnimation(msg):*** Is called when animation events occurred.
+
+Description of `msg` parameters:
+
 parameter	value	example	description
 msg.event	“init”	“event”:”init” 	init is called when animation is set up
 	“seek”
@@ -464,48 +494,63 @@ animation is playing from stage “Out1” to “In” or “In” to “Out2”
 animation is playing from stage “Out2” to “In” or “In” to “Out1”
 
 Example of msg param:
-  
-  {"event":"init","timeline":"In","duration":0.5,"direction":"forward"}
 
-  {"event":"seek","timeline":"In","duration":0.5,"time":0.005}
-
-  {"event":"start","timeline":"In","duration":0.5,"direction":"forward"}
-
-  {"event":"stop","timeline":"In","duration":0.5,"direction":"forward"}
-
-
+    {"event":"init","timeline":"In","duration":0.5,"direction":"forward"}
+    
+    {"event":"seek","timeline":"In","duration":0.5,"time":0.005}
+    
+    {"event":"start","timeline":"In","duration":0.5,"direction":"forward"}
+    
+    {"event":"stop","timeline":"In","duration":0.5,"direction":"forward"}
  
-COMPOSITION INSTANCES
+## Composition Instances
+
 in progress
 
- 
+## Versioning of Widgets
 
-VERSIONING OF WIDGETS
 Singular manages different versions of widgets. The versioning is not a source code repository, but will make it possible to use different versions of the same widget in different compositions. You can even use different version of a widget within the same composition.
-Create widget:
+
+### Create widget:
+
 In our example, we see one version of the widget in state Development. The development version is always on top of the version list and this is where you upload your source code to.
  
-Publish widget version 1
+### Publish widget version 1
+
 Once you are happy with your widget you can publish the development version by clicking the Publish button you see in widget version list.
- 
+
 Publishing a development version will change its state to Published and it will copy this published version and make it the new development version.
+
 In our example, we will see two versions after we publish our development version: one is development and one is published. 
+
 The singular widget deploy command will now upload the source code into version 2, this is the development version, whereas the published version cannot be changed. 
-Publish widget version 2
+
+### Publish widget version 2
+
 When you publish the development again you will see three versions. One is the new development version, one is the published version and there will also be an archived version.
- 
+
 The Published version is changed into archived when a publish happens. You can publish an archived version, the currently published version will change into archive, in case a newly published version of a widget has a bug and you have to revert back to an older version.
+
 Publishing new version of a widget does not change existing compositions. This will ensure that existing compositions will always behave the same even when new versions of widgets are published.
+
 If you want to upgrade widgets in a composition you can do that in the widget info editor in the lower left corner of the composition editor.
+
 An archived version change be changed into a deprecated version. Whenever Singular loads a composition and detects that a deprecated version of a widget is used it will automatically upgrade this widget to the latest published version. This is useful when a published version of a widget turns out to be broken and unusable. Fix the problem by uploading new code, publish that code and deprecate the broken version. 
- 
-QUESTIONS & MORE INFORMATION NEEDED?
+
+## Getting Help
+
+- **Need help**? Ask a question to the [Singular Helpdesk](https://singularlive.zendesk.com/hc/en-us/requests/new).
+- **Found a bug?** You can open a [GitHub issue](https://github.com/singularlive/singular-cli/issues).
+
+## Questions & More Information Needed?
 
 Please contact our helpdesk, customers’ success or support team:
-	Visit us at:	www.singular.live 
-	for helpdesk please contact:	helpdesk@singular.live 
-	for support please contact:	support@singular.live 
-	for sales please contact:	sales@singular.live 
-	for general information:	info@singular.live 
+
+- Visit us at: [www.singular.live](http://www.singular.live)
+- for helpdesk please contact: [helpdesk@singular.live](mailto:helpdesk@singular.live)
+- for support please contact: [support@singular.live](mailto:support@singular.live)
+- for sales please contact: [sales@singular.live](mailto:sales@singular.live)
+- for general information: [info@singular.live](mailto:info@singular.live)
+
 
 
